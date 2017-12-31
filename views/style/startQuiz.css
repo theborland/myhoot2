@@ -1,0 +1,501 @@
+body{
+	/*background: linear-gradient(to top, #fff 0%, #16A3FF 30%, #090A0F 100%);*/
+	background: #3b9c99; /* Old browsers */
+	background: -moz-linear-gradient(top, #3b9c99 0%, #c4ffc8 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #3b9c99 0%,#c4ffc8 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #3b9c99 0%,#c4ffc8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b9c99', endColorstr='#c4ffc8',GradientType=0 ); /* IE6-9 */
+}
+
+#headWrap{
+	width: 100%;
+	height: 120px;
+	background: rgba(255,255,255,0);
+
+}
+
+#logoWrap{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 300px;
+	height: 120px;
+	padding:10px 30px;
+	margin:0px;
+	color: #fff;
+	font-size: 65px;
+	font-weight: 100;
+	vertical-align: top;
+}
+
+#logoWrap #logo{
+	width: 180px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#subHeadWrap{
+	display: inline-block;
+	box-sizing: border-box;
+	width: calc(100% - 300px);
+	height: 120px;
+	margin:0px;
+	padding:20px 40px;
+	font-size: 45px;
+	font-weight: 100;
+	color:rgba(0,0,0,0.5);
+	vertical-align: top;
+}
+
+
+#bodyWrap{
+	width: 100%;
+	text-align: center;
+}
+
+#colsWrap{
+	width: 100%;
+	max-width: 1200px;
+	min-width: 810px;
+	box-sizing: border-box;
+	display: inline-block;
+	padding:20px;
+}
+
+#colsWrap .col{
+	width: 33%;
+	max-width: 400px;
+	min-width: 270px;
+	box-sizing: border-box;
+	display: inline-block;
+	border:0px;
+	border-right:0px solid rgba(255,255,255,0.2);
+	vertical-align: top;
+}	
+
+
+#gsWrap{
+	width: 305px;
+	border: 0px solid #fff;
+	text-align: center;
+	padding:2px;
+	margin-top:10px;
+	margin:10px auto 0px;
+}
+#gsWrap .gsItem{
+	width: 94px;
+	height: 111px;
+	border:1px solid rgba(255,255,255,0);
+	box-sizing:border-box;
+	margin:2px 1px;
+	display: inline-block;
+	cursor:pointer;
+	position: relative;
+	background-position:  center 10px;
+	text-align: center;
+	background: rgba(255,255,255,0.5);
+	transition:all .1s;
+	border-radius: 3px;
+	z-index: 5;
+	padding:2px;
+}
+#gsWrap .gsItem:hover{
+	background: rgba(255,255,255,0.7);
+	border:1px solid rgba(255,255,255,0);
+}
+#gsWrap .gsSel{
+	border:1px solid rgba(0,0,0,0);
+	background: rgba(255,255,255,0.9);
+}
+#gsWrap .gsSel:hover{
+	border:1px solid rgba(0,0,0,0);
+	background: rgba(255,255,255,1);
+}
+#gsWrap .gsName{
+	position: absolute;
+	bottom: 7px;
+	display: inline-block;
+	color:#333;
+	font-size:9px;
+	right: 0px;
+	left: 0px;
+	text-align: center;
+	font-weight: 500;
+}
+
+.sqLabel{
+	color:rgba(255,255,255,.9);
+	text-shadow: 0px 0px 10px rgba(0,0,0,.1	);
+	margin:0px;
+	padding: 0px;
+	text-align: left;
+	font-size: 18px;
+}
+
+.sqLabel#sqGameTypes{
+	margin:10px 0px 10px 8px;
+}
+
+#col2{
+	padding:0px 20px;
+}
+
+.sqLine{
+	width: 100%;
+	box-sizing: border-box;
+	text-align: left;
+}
+
+#sqQuizID{
+	margin:12px 0px 10px;
+	box-sizing: border-box;
+	width: 100% ;
+	padding:15px 20px;
+	border-radius: 10px;
+	background: rgba(255,255,255,0.5);
+}
+
+#sqQuizLabel {
+	text-shadow: none;
+	margin:20px 0px 0px 5px;
+	font-weight: 500;
+}
+
+#sqQuizID #quizID{
+	font-family: Overpass;
+	font-weight: 100;
+	font-size: 80px;
+	color:#333;
+}
+
+#sqNumRounds, #sqAutoplay{
+	margin:30px 0px 10px;
+	padding:0px 10px;
+}
+
+
+.col#col3{
+	padding:0px 20px;
+	border-right: 0px solid transparent;
+}
+
+#numUsers{
+	display: inline-block;
+}
+
+.sqLabel#sqNumUsers{
+	margin:20px 0px 10px 5px;
+	text-align: left;
+}
+
+
+#usersWrap{
+	border:0px solid #fff;
+	border-radius: 5px;
+	background:rgba(255,255,255,.5);
+	margin-bottom: 20px;
+	padding:7px 5px 7px 0px;
+}
+#nameUsers{
+	min-height: 200px;
+	max-height: 270px;
+	overflow-y:auto;
+	font-size: 18px;
+	font-weight: 300;
+	color:#333;
+	padding:10px 20px;
+	text-align: left;
+}
+
+.sqName{
+	display: inline-block;
+	padding:2px 9px;
+	border-radius: 5px;
+	background: #FF7526;
+	color:#fff;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+.sqNameRemove{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	background:#E14646;
+	text-align: center;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+	transition: .2s all;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.sqNameRemove:hover {
+	opacity: 1;
+}
+
+.sqNameRemove img{
+	width: 17px;
+	vertical-align: middle;
+}
+
+#col1 #showMap{
+	padding:3px 15px;
+	display: inline-block;
+	font-size: 16px;
+	margin-top: 10px;
+	background: rgba(255,255,255,0.5);
+}
+
+#col1 #showMap:hover{
+	background: rgba(255,255,255,0.7);
+}
+
+#submitLine{
+	text-align: center;
+	margin-top: 30px;
+}
+#errorLine{
+	text-align: center;
+	margin-top: 10px;
+	display: none;
+	color: rgba(255,255,255,0.6);
+}
+
+
+#sqStart{
+	padding:10px 30px;
+	font-size: 32px;
+	vertical-align: middle;
+}
+
+
+#sqSettingsButton{
+	background: url('../img/settings.svg');
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	margin:0px 10px 0px 0px;
+	vertical-align: middle;
+	cursor: pointer;
+
+}
+#sqSettingsButton:hover{
+	background: url('../img/settingsHover.svg');
+}
+
+#sqBackground{
+	position:absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 400px;
+	z-index: -1;
+	background: url('../img/sqBG.svg');
+	background-size: contain;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}
+
+#linkPlane{
+	position:absolute;
+	top: 20px;
+	right: 50px;
+	height: 64px;
+	width: 176px;
+	z-index: -1;
+	background: url('../img/plane.svg');
+}
+
+
+#bannerWrap{
+	position: absolute;
+	top:15px;
+	right: 300px;
+}
+.banner{
+	font-size: 250%;
+	color: #fff;
+	padding:10px 30px;
+	display: inline-block;
+	background: rgba(191,109,91,1);
+	position: relative;
+}
+
+#joinHere{
+	font-weight: 100;
+	padding-right: 30px;
+	background: rgba(147,79,65,1);
+	top:10px;
+	left:10px;
+}
+
+#bannerLink{
+	top:0px;
+}
+
+
+#sun{
+	position:absolute;
+	top: 50px;
+	right: 200px;
+	height: 60px;
+	width: 60px;
+	border-radius: 100%;
+	background: #FFE592;
+	box-shadow: 0px 0px 111px 96px rgba(255,255,255,.6);
+	z-index: -3;
+	display: none;
+}
+
+
+/* rules that only apply for canvases narrower than 1000px */
+@media only screen and (max-width: 1200px) { 
+	#linkPlane{
+		display: none;
+	}
+	#bannerWrap{
+		right:50px;
+	}
+
+}
+
+#settingWrap{
+	position: fixed;
+	top:-700px;
+	left: calc(50% - 450px);
+	width: 900px;
+	box-sizing:border-box;
+	padding:25px 50px;
+	display: block;
+	background:rgba(0,0,0,0);
+	z-index: 10;
+	transition: .7s all cubic-bezier(0, 0, 0, 1);
+	opacity: 1;
+}
+#settingBlur{
+	position: fixed;
+	z-index: 9;
+	top:0px;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(233,251,240,1) 100%) ;
+	transition: .7s all cubic-bezier(0, 0, 0, 1);
+ 	display: none;
+ 	opacity: 0;
+}
+
+#settingCloseButton{
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	right: 30px;
+	top: 30px;
+	z-index: 11;
+	background: url('../img/x.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+#settingCloseButton:hover{
+	background: url('../img/xHover.svg');
+}
+
+#settingsLineWrap{
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	padding-bottom: 15px;
+}
+
+.settingsHL{
+	display: inline-block;
+	width: 50%;
+	box-sizing: border-box;
+}
+
+.settingsLabel{
+	font-size: 25px;
+	font-weight: 300;
+	color:#333;
+	vertical-align: middle;
+}
+
+#settingsSelectRegionsWrap{
+	color:#333;
+	font-size: 22px;
+	font-weight: 300;
+	color:#333;
+	vertical-align: middle;
+	margin-top: 15px;
+}
+
+#statesWrap{
+	text-align: right;
+}
+
+#statesLabel{
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+#numRounds{
+	vertical-align: middle;
+	margin-left: 10px;
+}
+#settingsAutoplay{
+	text-align: right;
+}
+
+#settingsAutoplay #autoplayCB{
+	margin-left: 6px;
+}
+
+#selectRegionsLabel{
+	font-size: 40px;
+	color: #333;
+	font-weight: 100;
+}
+
+#settingFootnote{
+	color:#999;
+	font-size: 13px;
+}
+#settingFootnote #footnote{
+	float: right;
+}
+
+#settingFootnote #selectAll{
+	color:#fff;
+	font-weight: 500;
+	font-size: 13px;
+	padding:3px 10px;
+	background:#888;
+}
+#settingFootnote #selectAll:hover{
+	background:#666;
+}
+#settingFootnote #selectAll:active{
+	background:#333;
+}
+
+#map path{
+	fill: rgba(0,0,0,.2);
+	transition:.1s all;
+}
+#map path:hover{
+	fill: rgba(0, 0, 0,.3);
+}
+#map .pathSelected{
+	fill: rgba(121, 220, 185,1);
+	box-shadow:0px 0px 10px red;
+}
+#map .pathSelected:hover{
+	fill: rgba(70, 204, 155,1);
+	box-shadow:0px 0px 10px red;
+}
+

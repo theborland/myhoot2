@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function fs(){
+		var i = document.body;
+
+		// go full-screen
+		if (i.requestFullscreen) {
+			i.requestFullscreen();
+		} else if (i.webkitRequestFullscreen) {
+			i.webkitRequestFullscreen();
+		} else if (i.mozRequestFullScreen) {
+			i.mozRequestFullScreen();
+		} else if (i.msRequestFullscreen) {
+			i.msRequestFullscreen();
+		}
+	}
+	</script>
+</head>
+<body id="bod" style="width:100%;height:100%;padding:0px;margin:0px;">
+	<div style="width:100%; height:100%; background:red;">
+		<a href="google.com">sup homie</a>
+		<input type="button" value="full scredfen" onclick="fs()">
+	</div>
+</body>
+</html>

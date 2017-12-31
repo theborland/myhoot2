@@ -1,0 +1,102 @@
+<html>
+<head>
+	<link rel="stylesheet" href="style/global.css">
+	<link rel="stylesheet" href="style/showAnswerOther.css">
+	<link rel="stylesheet" href="style/endScreen.css">
+
+	<!--<script src="scripts/getQuestion.js"></script>-->
+	<script src="scripts/global.js"></script>
+	<script src="scripts/socketScripts.js?ver=6"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script>
+		window.onload = function(){
+			document.getElementById('bgMusic').volume = 0;
+		    if (readCookie("playMusic")!="false"){
+				document.getElementById('bgMusic').play();
+				muteOn();
+		    }else{
+		    	muteOff();
+		    }
+		}
+	</script>
+</head>
+<body>
+
+
+
+<div id="roundWrap" class="tabcontent">
+	<div id="sidebarHeader">Final Scoreboard</div>
+	<div id="scoresWrap" class="scrollable">
+
+
+      <%
+			if (allUsers.length>0)allUsers[0].sortOverall(allUsers);
+			allUsers.forEach(function(user){  if (user.totalPoints!=0){ %>
+      <div class="scoresLine">
+                <div class="scoresName" style="background:#<%= user.color %>"><%= user.name %></div>
+                <div class="scoresGraphScore"><%= user.totalPoints %></div>
+
+              </div>
+      <% }}) %>
+
+
+
+	</div>
+
+
+
+	</div>
+</div>
+
+<div id="winnerStandAligner">
+	<div id="winnerStandWrap">
+
+      		<% if (allUsers.length>=1 && allUsers[0].totalPoints>0){ %>
+
+		<div class="winnerStand" id="winnerStand1">
+			<div class="winnerName" style="background:#<%= allUsers[0].color %>;">
+				<%= allUsers[0].name %>
+			</div>
+		</div>
+
+    		<%  }  if (allUsers.length>=2&& allUsers[1].totalPoints>0){ %>
+
+		<div class="winnerStand" id="winnerStand2">
+			<div class="winnerName" style="background:#<%= allUsers[1].color %>;">
+				<%= allUsers[1].name %>
+			</div>
+		</div>
+
+			<%  }  if (allUsers.length>=3&& allUsers[2].totalPoints>0){ %>
+
+
+		<div class="winnerStand" id="winnerStand3">
+			<div class="winnerName" style="background:#<%= allUsers[2].color %>;">
+				<%= allUsers[2].name %>
+			</div>
+		</div>
+
+			<% } %>
+	</div>
+</div>
+
+
+<a href="startQuiz?replay=yes" id="replayButton" class="regButton">Replay</a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSd6Ffh6mC0tBQ52YoEWNdu696FHKfh5dxGYTinzr4fC7nK1OQ/viewform?c=0&w=1" id="feedbackButton" class="regButton">Give Feedback</a>
+
+<audio id="bgMusic"  enablejavascript="yes" volume="0">
+  <source src="music/end.mp3"  type="audio/mpeg" volume="0">
+	Your browser does not support the audio element.
+</audio>
+
+
+<input type="button" class="utilityButton" id="muteButton" 			onclick="mute()">
+<input type="button" class="utilityButton" id="fullscreenButton" 	onclick="parent.fullscreen()">
+
+<div id="winnerBackground"></div>
+
+
+
+</body>
+</html>

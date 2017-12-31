@@ -1,0 +1,91 @@
+<!-- <?php
+  if (isset($_POST['submit']) && $_POST['submit']=='Submit' ){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $from = 'From: GameOn@world.com';
+    $to = 'theborland@gmail.com';
+    $subject = 'Gameon.World Feedback';
+
+
+    $body = "From: $name\n E-Mail: $email\n Message:\n $message";
+
+
+        if (mail ($to, $subject, $body, $from)) {
+    	    $mailResponse= '<p>Your message has been sent!</p>';
+	} else {
+	        $mailResponse= '<p>Something went wrong, go back and try again!</p>';
+	}
+    }
+?> -->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<link rel="stylesheet" href="style/global.css">
+	<link rel="stylesheet" href="style/content.css">
+	<link rel="stylesheet" href="style/contact.css">
+	<link rel="stylesheet" href="style/form.css">
+	<script src="scripts/global.js"></script>
+
+	<title>Contact Us</title>
+</head>
+<body>
+
+<div id="wholeWrap">
+
+	<div id="headWrap">
+		<div id="logoWrap">
+			<a href="http://GameOn.World" id="logoLink">			<a href="http://GameOn.World" id="logoLink"><img src="img/logo.svg" id="logo"></a></a>
+		</div>
+		<div id="menuWrap">
+			<div id="menuItemContainer">
+				<div class="menuItem"><a href="joinQuizForm" class="menuLink">Play!</a></div>
+				<div class="menuItem"><a href="aboutUs.html" class="menuLink">About</a></div>
+				<div class="menuItem"><a href="contactUs" class="menuLink">Contact</a></div>
+			</div>
+		</div>
+	</div>
+	<div id="pageHeader">Contact</div>
+	<div id="bodyWrap">
+		<div id="formWrap">
+<% if (mailResponse!=""){
+%>
+  <p>
+  <h3>  <%= mailResponse %></h3>
+  </p>
+  <%
+}
+else {
+%>
+      <p>
+				We would love your feedback - issues, suggestions, anything. Fill out this form and tell us what you think.
+			</p>
+			<form method="post">
+
+				<label class="jqLabel" for="name">NAME</label>
+				<input class="jqInput" name="name" id="name" >
+
+				<label class="jqLabel" for="email">EMAIL</label>
+				<input class="jqInput" name="email" id="email" type="email" >
+
+				<label class="jqLabel" for="message">MESSAGE</label>
+				<textarea class="jqInput" id="message" name="message" ></textarea>
+
+				<div id="submitWrap">
+					<input class="regButton" id="submit" name="submit" type="submit" value="Send">
+				</div>
+			</form>
+    <% } %>
+		</div>
+	</div>
+	<div id="pageFooter">
+		Copyright &copy; 2018 GameOnWorld
+	</div>
+
+</div>
+</body>
+
+</html>

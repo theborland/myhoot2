@@ -1,0 +1,252 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Answer</title>
+
+	<link rel="stylesheet" href="style/global.css">
+	<link rel="stylesheet" href="style/showAnswerOther.css">
+	<link rel="stylesheet" href="style/nouislider.min.css">
+
+	<!--<script src="scripts/getQuestion.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="scripts/jquery.pause.min.js"></script>
+	<script src="scripts/global.js"></script>
+	<script src="scripts/showAnswer.js"></script>
+	<script src="scripts/socketScripts.js?ver=1"></script>
+	<script src="scripts/nouislider.min.js"></script>
+
+	<script>
+	var currentTab=-1;
+
+	function nextTab(){
+				// Declare all variables
+				var i, tabcontent, tablinks;
+				console.log("next tab");
+				// Get all elements with class="tabcontent" and hide them
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for (i = 0; i < tabcontent.length; i++) {
+						tabcontent[i].style.display = "none";
+				}
+
+				currentTab++;
+				// if (currentTab==3)currentTab=0;
+
+				if (currentTab==0){
+						document.getElementById('roundWrap').style.display = "block";
+						//document.getElementById('but0').className += " active";
+				}
+				if (currentTab==1){
+						document.getElementById('overallWrap').style.display = "block";
+					//  document.getElementById('but1').className += " active";
+				}
+	}
+
+
+
+  //automatically forward if automode is on
+  var counter=11;
+  var interval = setInterval(function() {
+    if(gameplaying==true)
+         counter--;
+    //console.log(counter);
+    //$('#timeLeft').html(counter);
+      if (counter <= 0) {
+        counter=99999;
+        window.location.replace("getQuestion");
+      }
+  }, 1000);
+
+			window.onload = function(){
+
+				<% if (auto!='yes'){ %>
+				setTimeout(function() {
+					switchGameWAnimation();
+					switchGameWAnimation();
+				}, 0001);
+				<% } %>
+
+				nextTab();
+				setTimeout(nextTab, 3000);
+
+			$('#timer').animate({
+				width: "0%"
+			}, 11000, "linear");
+
+
+		    answer = document.getElementById("answer").innerHTML;
+			  //alert(answer);
+			  answer = answer.length >= 10 ? answer :new Array(2).join("x") + answer;
+			  //alert(answer);
+			  setTimeout( function(){
+
+			    for(n=0; n < answer.length; n++){
+			      time = 50 + Math.round(Math.random() * 50);
+			      for(i=0; i < 25; i++){
+			          val = (answer.charAt(n) == "x".charAt(0)) ? "&nbsp;" : answer.charAt(n) + "";
+			          animateNum(i, n, (i==24), val, time);
+			      }
+			    }
+			  }, 500);
+
+			/*
+			var timeline = document.getElementById('timeline');
+
+			noUiSlider.create(timeline, {
+			  start: [<?php //echo $reg2 ?>],
+			  connect: "upper",
+			  direction: 'ltr',
+			  range: {
+			    'min': [<?php //echo $reg0 ?>],
+			    '25%': [<?php //echo $reg1 ?>],
+			    '50%': [<?php //echo $reg2 ?>],
+			    '75%': [<?php //echo $reg3 ?>],
+			    'max': [<?php //echo $reg4 ?>]
+			  },pips: { // Show a scale with the slider
+			    mode: 'steps',
+			    density: 2
+			  }
+			});
+*/
+			  labels = document.getElementsByClassName("noUi-value-large");
+			  for(var i=0; i<labels.length;i++){
+			    val = parseInt(labels[i].innerHTML);
+			    labels[i].innerHTML = comma(val);
+			  }
+			}
+
+
+	</script>
+
+	<style>
+		body{
+      <%
+        if(theQuestion.type != "estimation" &&theQuestion.type != "mih" ){
+      %>
+      background-image: url("<%= theQuestion.image %>");
+      <%   }
+      else {    %>
+      background-color: #ddd;
+      <%   }
+        if(theQuestion.type == "age" || theQuestion.type == "entertainment" || theQuestion.type == "rand"){
+      %>
+      background-size       : contain;
+      background-position   : top center;
+      <% }else{ %>
+      background-size       : cover;
+      background-position   : center;
+      <% } %>
+    }
+    <%
+      if(theQuestion.type == "estimation" || theQuestion.type == "mih" ){
+    %>
+    #answersWrap{
+      position:absolute;
+      top:150px;
+    }
+    <%   }
+       %>
+
+	#rightBarWrap{
+		margin-left:450px;
+		margin-top:200px;
+		position: fixed;
+	}
+	</style>
+
+
+
+
+</head>
+<body>
+
+
+<div id="topBarWrap">
+	<div id="topLeftCell">
+
+
+		  <div id="answerLabel"> <%= theQuestion.getLabel(); %></div>
+		  <div id="answerWrap">
+		    <% for (var i=0;i<=correctAns.value.length;i++){  %>
+		       <div class="answerNum" id="answerNum<%= i %>">0</div>
+		       <% if ((correctAns.value.length+1-i==4 || correctAns.value.length+1-i==7 || correctAns.value.length+1-i==10) && i!=correctAns.value.length){   %>
+		         <div class="answerNum noB" id="answerNumC">&nbsp;</div>
+
+		       <%  }    %>
+		    <%  }    %>
+		    <div class="answerNum noB" id="answerNumC"  style="width:70px;"><%= theQuestion.getQuestionUnits() %></div>
+		  </div>
+
+
+
+
+	</div><div id="topRightCell">
+		<a href="getQuestion" class="regButton" id="userMapSubmit"><%= theQuestion.questionNumber<numRounds?  "Next Question": "Game Over" %></a>
+	</div>
+	<div id="timerContainer">
+		<div id="timer"></div>
+	</div>
+</div>
+<div id="sidebarWrap">
+	<div id="sidebarHeader">Scoreboard
+</div>
+<div id="roundWrap" class="tabcontent">
+	<div id="sidebarHeader">This Round 			<%= theQuestion.questionNumber %>  <% if (numRounds<999) { %>  of <%= numRounds; %><% } %>
+	</div>
+	<div id="scoresWrap" class="scrollable">
+
+
+			<%
+			if (allUsers.length>0)allUsers[0].sortRound(allUsers);
+			allUsers.forEach(function(user){ if (user.answer!=null){  %>
+			<div class="scoresLine">
+								<div class="scoresName" style="background:#<%= user.color %>"><%= user.name %></div>
+								<div class="scoresGraphScore"><%= user.totalPoints %></div>
+								<div class="roundPoints"><%=  user.answer!=null? user.answer.roundPoints: "0" %></div>
+							</div>
+			<% }}) %>
+
+
+
+	</div>
+</div>
+<div id="overallWrap" class="tabcontent">
+	<div id="sidebarHeader">Overall 			<%= theQuestion.questionNumber %>  <% if (numRounds<999) { %>  of <%= numRounds; %><% } %>
+	</div>
+	<div id="scoresWrap" class="scrollable">
+
+
+			<%
+			if (allUsers.length>0)allUsers[0].sortOverall(allUsers);
+			allUsers.forEach(function(user){  if (user.totalPoints!=0){ %>
+			<div class="scoresLine">
+								<div class="scoresName" style="background:#<%= user.color %>"><%= user.name %></div>
+								<div class="scoresGraphScore"><%= user.totalPoints %></div>
+								<div class="roundPoints"><%=  user.answer!=null? user.answer.roundPoints: "0" %></div>
+							</div>
+			<% }}) %>
+
+
+
+	</div>
+</div>
+</div>
+
+
+	<% if(theQuestion.type  == "estimation" || theQuestion.type == "mih") { %>
+		<div id="rightBarWrap"><%- theQuestion.image %></div>
+			<% } %>
+
+
+
+
+<div id="answer"><%= correctAns.value %></div>
+
+
+
+<input type="button" class="utilityButton" id="playGameButton" 		onclick="switchGameWAnimation()">
+<input type="button" class="utilityButton" id="fullscreenButton" 	onclick="parent.fullscreen()">
+<a href="endScreen" id="endGame" class="regButton">End Game</a>
+<div id="gameID">ID:<%= game_id.substring(0,5) %></div>
+
+</body>
+</html>

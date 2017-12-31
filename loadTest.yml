@@ -1,0 +1,22 @@
+config:
+  target: "http://yankee-solutions.com"
+  processor: "./loadTest.js"
+  phases:
+    - duration: 4
+      arrivalRate: 20
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - flow:
+    - function: "generateRandomData"
+    - post:
+        url: "/submitAnswer"
+        form:
+          name: "{{name}}"
+          game_id: "881591039"
+          questionNumber: "1"
+          user_id: "{{ id }}"
+          answer: "{{ answer }}"
+          color: "ff0000"
+    - log: "Sent a request to /users with {{ name }}, {{ id  }}, {{ answer }}"

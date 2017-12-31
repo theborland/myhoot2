@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8">
+	<title>Button Input</title>
+    <link rel="stylesheet" href="style/inputButton.css">
+    <script>
+		var num1 = document.getElementById("answerNum0");
+		num1.value = "hi";
+
+		setTimeout( function(){
+		}, 1000 );
+
+
+    	
+    </script>
+</head>
+<body>
+
+	<div id="controlWrap">
+		<div class="buttonWrap" id="bwPlus">
+			<input type="button" value="+.1m" class="cButton">
+			<input type="button" value="+1m" class="cButton">
+			<input type="button" value="+10m" class="cButton">
+			<input type="button" value="+100m" class="cButton">
+		</div>
+		<div id="cValue">1,000,000,000</div>
+		<div class="buttonWrap" id="bwMinus">
+			<input type="button" value="-.1m" class="cButton">
+			<input type="button" value="-1m" class="cButton">
+			<input type="button" value="-10m" class="cButton">
+			<input type="button" value="-100m" class="cButton">
+		</div>
+	</div>
+
+<br><br><br>
+	<div id="answerWrap">
+		<div class="answerNum" id="answerNum0">0</div>
+		<div class="answerNum noB" id="answerNumC">,</div>
+		<div class="answerNum" id="answerNum1">2</div>
+		<div class="answerNum" id="answerNum2">2</div>
+		<div class="answerNum" id="answerNum3">2</div>
+		<div class="answerNum noB" id="answerNumC">,</div>
+		<div class="answerNum" id="answerNum4">0</div>
+		<div class="answerNum" id="answerNum5">0</div>
+		<div class="answerNum" id="answerNum6">0</div>
+		<div class="answerNum noB" id="answerNumC">,</div>
+		<div class="answerNum" id="answerNum7">3</div>
+		<div class="answerNum" id="answerNum8">2</div>
+		<div class="answerNum" id="answerNum9">2</div>
+	</div>
+
+
+</body>
+</html>

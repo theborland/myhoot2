@@ -1,0 +1,107 @@
+#mainMessageWrap{
+background:rgba(255,255,255,0.5);
+color:#333;
+padding:10px 0px 10px 10px;
+border:0px;
+border-radius: 10px;
+font-size:25px;
+font-weight: 300;
+}
+
+#mainMessageExtra{
+margin-top:5px;
+font-size:18px;
+font-weight:300;
+color:rgba(0,0,0,0.5);
+}
+
+#timerBar{
+position: fixed;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 5px;
+background: #17DB91;
+}
+
+
+#saoTable{
+	box-sizing: border-box;
+	/*padding:10px;*/
+
+}
+
+.saoItem{
+	border-bottom: 3px solid rgba(0, 0, 0, 0.12);
+	text-align: left;
+	padding:0px;
+}
+
+.saoItem .saoName.temp{
+	font-size: 12px !important;
+
+}
+
+.saoItem:nth-child(1) .saoName{
+	font-size: 20px;
+	font-weight: normal;
+}
+.saoItem:nth-child(2) .saoName{
+	font-size: 20px;
+	font-weight: normal;
+}
+.saoItem:nth-child(3) .saoName{
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.saoItem:nth-child(1) .saoNumber{
+	color:#fff;
+	background:#FEB41A;
+}
+.saoItem:nth-child(2) .saoNumber{
+	color:#fff;
+	background:#BCBCBA;
+}
+.saoItem:nth-child(3) .saoNumber{
+	color:#fff;
+	background:#BF6726;
+}
+
+.saoItem:last-child{
+	border-bottom: 0px solid #999;
+}
+
+
+.saoNumber{
+	font-size: 25px;
+	font-weight: bold;
+	color:#999;
+	box-sizing: border-box;
+	padding:10px 10px;
+	display:inline-block;
+	width: 50px;
+	text-align: center;
+}
+
+.saoName{
+	font-size: 18px;
+	font-weight: 300;
+	color:#333;
+	box-sizing: border-box;
+	padding:5px 10px;
+	display:inline-block;
+	width: calc(100% - 140px);
+	text-align: left;
+}
+
+.saoAve{
+	font-size: 18px;
+	font-weight: bold;
+	color:#333;
+	box-sizing: border-box;
+	/*padding:5px 5px;*/
+	display:inline-block;
+	width: 70px;
+	text-align: right;
+}

@@ -1,0 +1,114 @@
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Waiting...</title>
+	<link rel="stylesheet" href="style/global.css">
+	<link rel="stylesheet" href="style/waitingScreen.css?ver=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="scripts/global.js"></script>
+ <script src="/socket.io/socket.io.js"></script>
+	<script src="scripts/socketScripts.js?ver=11"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<style>
+
+#placeCommentBox{
+	 /* background-color: rgb(165, 42, 36); */
+	padding: 10px;
+	border: 0px;
+	border-radius: 10px;
+	margin-top: 20;
+}
+.placeCommentOut{
+	display: inline;
+	    font-size: .5em;
+	    color: #4a4a4a;
+	    top: -10px;
+	    position: relative;
+	    font-weight: normal;
+}
+.placeCommentPlace{
+	display: inline;
+
+	    font-size: 2em;
+	    font-weight: bold;
+	    background: #ffffff;
+	    border-radius: 25px;
+padding: 10px 30px 0px 30px;
+box-shadow: 5px 5px 5px grey;
+}
+.placeComment{
+display: block;
+}
+  #mainMessageWrap{
+  background:rgba(255,255,255,0.5);
+  color:#333;
+  padding:20px;
+  border:0px;
+  border-radius: 10px;
+  font-size:25px;
+  font-weight: 300;
+}
+
+#mainMessageExtra{
+  margin-top:5px;
+  font-size:18px;
+  font-weight:300;
+  color:rgba(0,0,0,0.5);
+}
+</style>
+	<script>
+  var socket = io.connect("<%= socketIP %>");
+  loadWaitingForQuestion('<%= game_id %>','<%= name %>');
+//	loadWaitingForComment('<%= user_id %>');
+	</script>
+</head>
+<body>
+
+<div id="headerContainer">
+				<a href="#" id="logoLink"><img src="img/logo.svg" id="logo"></a>
+    	<div id="waiting">Waiting...</div>
+
+</div>
+<div id="messageWrap">
+
+  <div id="mainMessageWrap">
+
+      <% if (message=="new") { %>
+        <div id="welcome">Game on, <%= name %>!</div>
+				<% } else if (message=="nosubmit") { %>
+	        <div id="score"><div style="font-size:30px;">The question is over - remember to hit submit next time.</div></div>
+	      <% } else if (message=="already") { %>
+	        <div id="score"><div style="font-size:30px;">Are you for real? You already submitted this question.</div></div>
+	      <% }
+			 else if (!isNaN(message)) { %>
+
+        <div id="score"><div style="font-size:30px;">Your answer was</div> <%= message %> miles away.</div>
+      <% } else { %>
+        <%= message %>
+       <% } %>
+
+        <div id="mainMessageExtra">
+  				<% if (!isNaN(place) && place>0) { %>
+					You were closer than <%= place %>% of other people worldwide.
+       <% } %>
+    </div>
+
+  </div>
+	<div id="placeCommentBox"  style="display:none;" >
+		<div class="placeCommentPlace"><div id="placeNum" style="display:inline;"></div>  <div class="placeCommentOut">of <div id="totalNum" style="display:inline;"></div></div>
+		<i class="fa fa-arrow-circle-up" id="arrows" style="font-size:0px;color:red;margin-left:10;"></i><i class="fa fa-arrow-circle-down" id="arrows2" style="font-size:0px;color:red;margin-left:10;"></i></div>
+		<div class="placeComment" id="placeComment"></div>
+</div>
+
+</div>
+<div id="tryContainer">
+	Others playing?
+	<a href="checkQuestion" class="regButton" id="tryHere">Catch Up!</a>
+</div>
+</body>
+</html>

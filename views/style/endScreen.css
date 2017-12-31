@@ -1,0 +1,91 @@
+body{
+	background: #3b9c99; /* Old browsers */
+	background: -moz-linear-gradient(top, #3b9c99 0%, #c4ffc8 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #3b9c99 0%,#c4ffc8 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #3b9c99 0%,#c4ffc8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b9c99', endColorstr='#c4ffc8',GradientType=0 ); /* IE6-9 */
+}
+#winnerBackground{
+	position: fixed;
+	right:0px;
+	left: 0px;
+	bottom: 0px;
+	top: 0px;
+	background-image:url("../img/winnerBG.svg");
+	background-position: bottom;
+	background-repeat: no-repeat;
+	z-index: -1;
+}
+
+
+#winnerStandAligner{
+	text-align: center;
+}
+#winnerStandWrap{
+	background-image:url("../img/winnerStand.svg");
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size:contain;
+	z-index: 1;
+	position: fixed;
+	bottom:0px;
+	left: calc(50% - 100px);
+	width: 600px;
+	height: 600px;
+}
+
+.winnerStand{
+	position: absolute;
+	width: 150px;
+}
+
+#winnerStand1{
+	bottom:340px;
+	left: 225px;
+}
+#winnerStand2{
+	bottom:290px;
+	left: 40px;
+}
+#winnerStand3{
+	bottom:260px;
+	left: 400px;
+}
+
+.winnerName{
+	padding:5px 10px;
+	border-radius: 10px;
+	color:#fff;
+	font-size: 20px;
+	font-weight: 300;
+}
+
+
+#replayButton{
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	width:140px;
+	text-align: center;
+}
+#feedbackButton{
+	position: fixed;
+	right: 10px;
+	top: 80px;
+	background: #238EFF;
+	color: #fff;
+	padding:10px 20px 10px;
+	width: 170px;
+	font-size: 20px;
+}
+#feedbackButton:focus{
+	background: #49B9FF;
+	color: #fff;
+}#feedbackButton:hover{
+	background: #52C5FF;
+	color: #fff;
+}
+#feedbackButton:active{
+	background: #6CCCFF;
+	color: #fff;
+}

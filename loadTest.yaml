@@ -1,0 +1,14 @@
+config:
+  target: "http://yankee-solutions.com"
+  phases:
+    - duration: 10
+      arrivalRate: 5
+scenarios:
+  - name: "Connect and send a bunch of messages"
+    flow:
+      - function: "setMessage"
+      - post:
+          url: "/submitAnswer"
+          form:
+            name: {{ $randomString() }}
+            answer: "{{ message }}"

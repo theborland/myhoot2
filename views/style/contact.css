@@ -1,0 +1,26 @@
+p{
+  color:rgba(255,255,255,.5);
+  font-weight: 300;
+  font-size: 16px;
+}
+
+#formWrap{
+  width: 60%;
+  min-width:300px;
+  max-width: 500px;
+  margin:30px auto;
+  box-sizing: border-box;
+  padding:0px 30px;
+}
+
+#formWrap .jqInput{
+  width: 100%;
+}
+
+#submitWrap{
+  text-align: center;
+}
+
+textarea.jqInput{
+  height:130px;
+}

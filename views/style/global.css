@@ -1,0 +1,289 @@
+@font-face {
+  font-family: 'Overpass';
+  src: url('../fonts/overpass/Overpass-Reg.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Overpass';
+  src: url('../fonts/overpass/Overpass-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Overpass';
+  src: url('../fonts/overpass/Overpass-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Overpass';
+  src: url('../fonts/overpass/Overpass-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Overpass';
+  src: url('../fonts/overpass/Overpass-ExtraLight.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Overpass';
+  src: url('../fonts/overpass/Overpass-ExtraLightItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Overpass';
+  src: url('../fonts/overpass/Overpass-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Overpass';
+  src: url('../fonts/overpass/Overpass-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@import "compass/css3";
+
+
+html{
+	padding: 0px;
+	margin: 0px;
+	width:100%;
+	height: 100%;
+}
+body{
+	padding: 0px;
+	margin: 0px;
+	width:100%;
+	height: 100%;
+	background: #fff;
+	font-family: Overpass;
+}
+
+.regButton{
+	padding:13px 29px 10px;
+	border:0px solid #fff;
+	text-align: center;
+	font-size: 23px;
+	font-weight: 300;
+	color:#333;
+	border-radius: 10px;
+	box-sizing: border-box;
+	background: rgba(212, 95, 136, 0.9);
+	transition: .2s all;
+	cursor:pointer;
+	box-shadow: 0px 0px 30px rgba(255,255,255,.1);
+	text-decoration: none;
+	-webkit-appearance: none;
+}
+.regButton:visited{
+	color:#333;
+	box-shadow: 0px 0px 30px rgba(255,255,255,.1);
+}
+
+.regButton:hover{
+	background: rgba(250, 95, 136, 1);
+	color:#333;
+	box-shadow: 0px 0px 30px rgba(255,255,255,.3);
+}
+.regButton:active{
+	background: rgba(250, 95, 136, 1);
+	color:#000;
+	box-shadow: 0px 0px 30px rgba(255,255,255,.5);
+}
+.regButton:focus{
+	outline:none;
+}
+
+
+input[type="checkbox"]{
+	-webkit-appearance:none;
+	width: 20px;
+	height: 20px;
+	border:0px;
+	background:rgba(0,0,0,0.5);
+	border-radius: 2px;
+	cursor: pointer;
+	box-sizing:border-box;
+	vertical-align: middle;
+}
+input[type='checkbox']:hover {
+	background:rgba(0,0,0,0.7);
+}
+input[type='checkbox']:checked {
+	border:0px solid transparent;
+	outline: 0px solid #fff;
+	background:url('../img/check.svg');
+	background-size: contain;
+}
+input[type='checkbox']:checked:hover {
+	background:url('../img/checkHover.svg');
+}
+
+input[type='checkbox']:focus {
+	outline:0px;
+}
+
+
+.utilityButton{
+	border:0px;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	outline:0px;
+	cursor:pointer;
+	opacity: .8;
+	z-index: 98;
+	transition:.1s all;
+}
+.utilityButton:focus{
+	outline:0px;
+	border:0px;
+}
+.utilityButton:hover{
+	opacity: 1;
+}
+
+#muteButton{
+	background: url('../img/mute.svg');
+}
+#playGameButton{
+	background: url('../img/pause.svg');
+	right: 110px;
+}
+#fullscreenButton{
+	background: url('../img/fullscreen.svg');
+	right: 60px;
+}
+
+
+
+.scrollable::-webkit-scrollbar {
+	width: 10px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+	display: none;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+	border-radius: 20px;
+	background:rgba(50,50,50,.3);
+	cursor: pointer;
+}
+
+#endGame{
+	position: fixed;
+	bottom: 17px;
+	left: 10px;
+	z-index: 12;
+	font-size: 14px;
+	padding:5px 10px;
+	background: rgba(0,0,0,0.6);
+	color:#fff;
+}
+#endGame:hover{
+	background: rgba(236,61,7,0.9);
+}
+
+#gameID{
+	position:fixed;
+	color:#f1f1f1;
+	font-size: 30px;
+	bottom: 10px;
+	left: 100px;
+}
+
+
+
+
+
+
+/*___________________  REMOVE after fix  _____________________*/
+
+#overlayWrap{
+	display: block;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width: 100%;
+	height: 80px;
+
+	background-color: rgba(30,30,30,.9);
+	z-index: 1000;
+	color:#fff;
+}
+
+#overlayWrap #logo{
+	font-weight: 100;
+	font-size: 35px;
+	width: 130px;
+	display: inline-block;
+	position:fixed;
+	left:0px;
+	top:0px;
+	padding:5px 20px;
+	margin: 10px 2px;
+	text-shadow: 0px 0px 25px #000;
+}
+
+#overlayWrap h3{ /* round 3, etc*/
+	font-weight: 300;
+	font-size: 25px;
+	position:fixed;
+	right:0px;
+	top:0px;
+	display: inline-block;
+	padding:5px 20px;
+	margin: 28px 10px;
+	text-shadow: 0px 0px 25px #000;
+
+}
+
+#overlayWrap #userMapSubmit{
+	position: fixed;
+	right:10px;
+	top:10px;
+}
+
+
+.cloudWrap{
+	border-radius: 0px;
+	z-index: -50;
+	opacity:0.2;
+}
+.cloud{
+	position: fixed;
+	z-index: -11;
+	background: rgba(255,255,255,.6);
+	border-radius: 100%;
+	border:0px;
+	border-top:20px solid white;
+	box-sizing: border-box;
+}
+
+#logoLink{
+	border:0px;
+	text-decoration: none;
+	outline:0px;
+}
+
+
+#timerContainer{
+	width: 100%;
+	height: 25px;
+	text-align: center;
+	background: #D55335;
+}
+#timer{
+	width: 100%;
+	height: 25px;
+	background: #17DB91;
+}

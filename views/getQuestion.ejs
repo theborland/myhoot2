@@ -1,0 +1,168 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>MyHoot</title>
+
+
+	<link rel="stylesheet" href="style/global.css">
+	<link rel="stylesheet" href="style/getQuestion.css">
+
+	<!--<script src="scripts/getQuestion.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="scripts/jquery.pause.min.js"></script>
+	<script src="scripts/global.js"></script>
+	<script src="scripts/socketScripts.js?ver=3"></script>
+	<script src="/socket.io/socket.io.js"></script>
+
+	<script>
+		var socket = io.connect('<%= socketIP %>');
+		// <?php if (isset($_SESSION['JS']) && $_SESSION['JS']!=""){
+		// 		echo $_SESSION['JS'];
+		// 		unset($_SESSION['JS']);
+		// 	}
+		// %>
+		loadWaitingForAnswers(<%= session.game_id %>, <%= session.questionNumber %>, '<%= session.auto %>', '', '<%= question.type %>');
+		findingNumberOfUsers(<%= session.game_id %>, <%= session.questionNumber %>);
+	</script>
+
+	<script>
+		var counter = 30;
+		window.onload = function() {
+			<% if (session.auto!='yes'){ %>
+			setTimeout(function() {
+				switchGameWAnimation();
+				switchGameWAnimation();
+			}, 001);
+			<% } %>
+			//switchGame();
+			document.getElementById('bgMusic').volume = 0;
+			if (readCookie("playMusic") != "false") {
+				document.getElementById('bgMusic').play();
+				muteOn();
+			} else {
+				muteOff();
+			}
+
+			$('#timer').animate({
+				width: "0%"
+			}, 30000, "linear");
+
+			var interval = setInterval(function() {
+				if (typeof gameplaying !== 'undefined' && gameplaying == false);
+				else
+					counter--;
+				console.log(counter);
+				//$('#timeLeft').html(counter);
+				if (counter <= 0) {
+					counter = 9999;
+					window.location.replace("showAnswer?sender=getQ");
+				}
+			}, 1000);
+
+			//animation clock
+			var x = 0;
+			var interval = setInterval(function() {
+
+				x++;
+			}, 50);
+
+
+
+		}
+	</script>
+
+	<style>
+		body {
+			<% if(question.type !="estimation" && question.type !="mih") {
+				%>background-image: url("<%- question.image %>");
+				<%
+			}
+			else {
+				%>background-color: #ddd;
+				<%
+			}
+			if(question.type=="age" || question.type=="entertainment" || question.type=="rand") {
+				%>background-size: contain;
+				background-position: top center;
+				<%
+			}
+			else {
+				%>background-size: cover;
+				background-position: center;
+				<%
+			}
+			%>
+		}
+
+		<% if(question.type=="estimation" || question.type =="mih") {
+			%>#answersWrap {
+				position: absolute;
+				top: 150px;
+			}
+			<%
+		}
+
+		%>
+	</style>
+
+</head>
+
+<body>
+
+	<div id="headerWrap">
+		<div id="logoWrap">
+			<a href="#" onclick="parent.redirectHome()" id="logoLink"><img src="img/logo.svg" id="logo"></a>
+		</div>
+		<div id="roundWrap">
+			<%= session.questionNumber %>
+				<%=  session.numRounds<999? " of "+ session.numRounds: "" %>
+		</div>
+		<div id="questionWrap">
+
+			<div id="questionType">
+				<%= question.getQuestionText() %>
+			</div>
+			<div id="actualQuestion">
+				<%= question.getLabel() %>
+					<%= question.getQuestionTextEnd(); %>?</div>
+
+
+
+		</div>
+		<div id="controlWrap">
+			<a href="showAnswer" class="regButton" id="showAnswer">Show Answer</a>
+			<div id="numAnswersContainer">
+				<div id="numAnswers">0</div>/
+				<div id="numPlayers">0</div> users have answered</div>
+		</div>
+	</div>
+	<div id="timerContainer">
+		<div id="timer"></div>
+	</div>
+	<%-
+		question.type == "estimation" || question.type=="mih"? question.image: "" %>
+		<div id="answersWrap" class="scrollable">
+
+
+		</div>
+
+
+		<audio id="bgMusic" enablejavascript="yes" volume="0">
+  <source src="music/quiz<%= (Math.floor(Math.random() * 2) + 1)   %>.mp3"  type="audio/mpeg" volume="0">
+	Your browser does not support the audio element.
+</audio>
+
+
+		<input type="button" class="utilityButton" id="muteButton" onclick="mute()">
+		<input type="button" class="utilityButton" id="playGameButton" onclick="switchGameWAnimation()">
+		<input type="button" class="utilityButton" id="fullscreenButton" onclick="parent.fullscreen()">
+		<a href="endScreen" id="endGame" class="regButton">End Game</a>
+		<div id="gameID">ID:
+			<%= session.game_id.substring(0,5) %>
+		</div>
+
+
+</body>
+
+</html>
